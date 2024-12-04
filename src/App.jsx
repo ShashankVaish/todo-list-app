@@ -38,7 +38,7 @@ function App() {
   const handlecomplete=(e)=>{
 
     let id = e.target.name
-    // console.log(id)
+    console.log(id)
     let index = todos.findIndex((item)=>{
       return item.id===id
     })
@@ -48,7 +48,7 @@ function App() {
     setTodos(newtodos)
     console.log(newtodos)
 
-    // for completed todos
+    
     // if(newtodos[index].isCompleted===true){
     //   setCompletetodos([...completetodos,{todo,key:id}])
     // }
@@ -80,8 +80,12 @@ function App() {
             {!item.isCompleted && 
             
              <li className="todo-item">{item.todo}
+             <div className="completed">
              <input type="checkbox" name={item.id} onClick={handlecomplete} id="" />
-             <button className="complete-task-button"  >Complete</button>
+             <article>completed</article>
+             </div>
+             {/* <article>completed</article> */}
+             {/* <button className="complete-task-button" onClick={()=>{handlecomplete}} >Complete</button> */}
               <button className="delete-task-button" onClick={(e)=>{handledelete(e,item.id)}}>Delete</button></li> 
         }
         </ul>
@@ -91,7 +95,7 @@ function App() {
         {todos.map((item)=>{
           return(<ul className="todo-list" key = {item.id}>
             {item.isCompleted && 
-            <li className="todo-item">{item.todo}</li>
+            <li className="todo-item" id='todo-completed'>{item.todo}</li>
             }
 
           </ul>
